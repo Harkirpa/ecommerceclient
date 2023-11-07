@@ -1,0 +1,48 @@
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .carousel-wrapper {
+    display: flex;
+    transition: transform 0.5s;
+  }
+  
+  .carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    aspect-ratio: 28/9;
+    height: -webkit-fill-available;
+  }
+  
+  .pagination {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .dot.activedot {
+    background-color: #333;
+  }
+  
+  /* Extra small devices (phones, 600px and down) */
+  @media only screen and (min-device-width: 270px) and (max-device-width: 1200px) {
+  }
+  
+  @media only screen and (min-device-width: 270px) and (max-device-width: 500px) {
+  }

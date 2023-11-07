@@ -1,0 +1,140 @@
+.dynamicProdContainer {
+  padding: 30px;
+}
+.dyProductCont {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+}
+.dyProductCont1 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dyProductBtns {
+  display: flex;
+  justify-content: space-evenly;
+}
+.dyProductImgCont {
+  position: relative;
+  height: 90%;
+}
+.dyProductImg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: auto;
+  opacity: 1;
+  max-width: 100%;
+  max-height: 100%;
+}
+.dyProductDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.dyProductHead {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.dyProductRatingsCont {
+  display: flex;
+  gap: 5px;
+  font-size: 0.8rem;
+  align-items: center;
+}
+.dyProductRating {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+  background-color: #11a411;
+  color: white;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.dyProductAmountCont {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+}
+.dyProductDiscount {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.dyProductOriPrice {
+  padding: 5px;
+  text-decoration: line-through;
+  color: gray;
+}
+.dyProductOriDiscountPer {
+  padding: 5px;
+  font-size: 1.1rem;
+  color: #11a411;
+  font-weight: bold;
+}
+
+.dyProductHighlightsCont {
+  margin: 10px 0;
+  gap: 10px;
+  display: flex;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.dyProductHighlightsCont ul {
+  margin: 0;
+  font-weight: 400;
+}
+.dyProductHighlightsCont ul li {
+  margin-bottom: 5px;
+}
+.dyProductHighlightsCont ul ::marker {
+  color: gray;
+}
+.dyProductDesciption {
+  font-size: 0.9rem;
+}
+.dyProductDesciptionHead {
+  font-weight: bold;
+}
+
+@media only screen and (min-device-width: 270px) and (max-device-width: 1200px) {
+  .dyProductCont {
+    grid-template-columns: auto;
+    align-items: center;
+  }
+  .dyProductImgCont {
+    width: 300px;
+    aspect-ratio: 1/1;
+    align-self: center;
+  }
+  .dyProductHead {
+    font-size: 1.4rem;
+  }
+  .dyProductDiscount {
+    font-size: 1.2rem;
+  }
+  .dyProductOriPrice {
+    font-size: 0.9rem;
+  }
+  .dyProductOriDiscountPer {
+    font-size: 0.9rem;
+  }
+}
+@media only screen and (min-device-width: 270px) and (max-device-width: 500px) {
+  .dyProductDiscount {
+    font-size: 0.9rem;
+  }
+  .dyProductOriPrice {
+    font-size: 0.7rem;
+    padding: 3px;
+  }
+  .dyProductOriDiscountPer {
+    font-size: 0.7rem;
+    padding: 3px;
+  }
+}

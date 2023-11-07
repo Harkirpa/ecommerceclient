@@ -1,0 +1,188 @@
+.homeContainer {
+    padding: 10px;
+  }
+  a{
+    color: black;
+  }
+  .wrapper {
+    max-height: 220px;
+    border: 1px solid #ddd;
+    display: flex;
+    overflow-x: auto;
+  }
+  .wrapper::-webkit-scrollbar {
+    width: 0;
+  }
+  .items {
+    min-width: 200px;
+    height: 250px;
+    text-align: center;
+    border: 1px solid #a3a3a358;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .imgCont {
+    height: 70%;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  .Title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  .Title::after {
+    margin-top: 10px;
+    content: "";
+    display: block;
+    height: 3px;
+    width: 80px;
+    background-color: #d8457c;
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    border-radius: 10px;
+  }
+  .quoteBanner {
+    height: 70vh;
+    font-size: 34px;
+    position: relative;
+    font-weight: bold;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("https://img.freepik.com/free-photo/female-friends-out-shopping-together_53876-25041.jpg?w=826&t=st=1699193712~exp=1699194312~hmac=88d5153cfa60531fe17d517a385db9d0b98ed688805dcaf6d9e28438eed06b46");
+    background-size: cover;
+    margin: 20px 0;
+    text-align: center;
+  }
+  .quoteBanner::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .quoteBanner::after {
+    content: "Shopping Is The Best Medicine";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
+  .container {
+    box-sizing: border-box;
+    padding: 30px;
+  }
+  .forUserContents {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  
+  .bestSellerContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .bestSellerBanner {
+    min-width: 300px;
+    height: 450px;
+    background-color: lightgrey;
+  }
+  .bestSellerProd {
+    width: 300px;
+    height: 200px;
+    background-color: lightgrey;
+  }
+  .topBestSellerContent {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  /*  */
+  .companyPolicyInfo {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 18px 24px;
+  }
+  .companyInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 35vh;
+    padding: 10px;
+  }
+  .companyInfoIcon {
+    font-size: xxx-large;
+  }
+  .companyInfoHead {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px;
+  }
+  .companyInfoText {
+    font-size: 14px;
+  }
+  
+  @media only screen and (min-device-width: 270px) and (max-device-width: 1200px) {
+    .items {
+      min-width: 180px;
+      height: 180px;
+    }
+    .forUserContents {
+      grid-template-columns: auto auto auto;
+      gap: 20px;
+    }
+    .container {
+      padding: 10px;
+    }
+    .Title {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .Title::after {
+      height: 3px;
+      width: 50px;
+      border-radius: 10px;
+    }
+  }
+  @media only screen and (min-device-width: 270px) and (max-device-width: 500px) {
+    .forUserContents {
+      grid-template-columns: auto auto;
+      gap: 20px;
+    }
+    .items {
+      min-width: 100px;
+      height: 100px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .quoteBanner {
+      font-size: 18px;
+    }
+    .quoteBanner::after {
+      width: 200px;
+    }
+    .companyPolicyInfo {
+      flex-direction: column;
+      align-items: center;
+      padding: 18px 24px;
+    }
+    .companyInfo {
+      width: 100%;
+      height: 28vh;
+    }
+  }

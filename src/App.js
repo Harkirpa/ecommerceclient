@@ -1,23 +1,53 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
+import Footer from "./Components/Footer"
+import Error from "./Components/Error";
+import Home from "./Components/Home";
 
+import Electronics from "./Components/Electronics";
+import Watches from "./Components/Watches";
+import Books from "./Components/Books";
+import Laptop from "./Components/Laptop";
+import Mobiles from "./Components/Mobiles";
+import Sonata from "./ProductPages/watches/Sonata";
+import Titan from "./ProductPages/watches/Titan";
+import Fastrack from "./ProductPages/watches/Fastrack";
+import Literature from "./ProductPages/books/Literature";
+import Nonfiction from "./ProductPages/books/Nonfiction"
+import Single from "./Components/Single";
+import Samsung from "./ProductPages/mobiles/Samsung";
+import Vivo from "./ProductPages/mobiles/Vivo";
+import Iphone from "./ProductPages/mobiles/Iphone";
+import Redmi from "./ProductPages/mobiles/Redmi";
+import Hp from "./ProductPages/laptop/Hp";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <BrowserRouter>
+        <Routes>
+              <Route path="/" element={<Home/>}/>
+            <Route path="/mobiles" element={<Mobiles/>}/>
+             <Route path="/laptop" element={<Laptop/>}/>
+          <Route path="/watches" element={<Watches/>}/>
+          <Route path="/electronics" element={<Electronics/>}/>
+          <Route path="/books" element={<Books/>}/>
+
+          <Route path="/single/:id" element={<Single/>}/> 
+
+          <Route path="/watches/sonata" element={<Sonata/>}/>
+          <Route path="/watches/titan" element={<Titan/>}/>
+              <Route path="/watches/fastrack" element={<Fastrack/>}/>
+             <Route path="/books/nonfiction" element={<Nonfiction/>}/>
+            <Route path="/books/literature" element={<Literature/>}/>
+            <Route path="/mobiles/samsung" element={<Samsung/>}/>
+            <Route path="/mobiles/iphone" element={<Iphone/>}/>
+            <Route path="/mobiles/vivo" element={<Vivo/>}/>
+            <Route path="/mobiles/redmi" element={<Redmi/>}/>
+            <Route path="/laptop/hp" element={<Hp/>}/>
+              <Route path="*" element={<Error />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
     </div>
   );
 }

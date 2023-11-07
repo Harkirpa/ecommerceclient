@@ -1,0 +1,120 @@
+.footer-component {
+    background-color: #0e0e86;
+    width: 100%;
+    color: #fcfcfc;
+    height: auto;
+    position: relative;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  a {
+    text-decoration: none;
+  }
+  .company-logo-comp {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  .company-logo-comp > a > img {
+    width: 80px;
+    height: 80px;
+  }
+  .company-info-comp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .footer-nav-logo {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: inherit;
+  }
+  .footer-logo2 {
+    font-weight: 700;
+    color: white;
+  }
+  .company-desc {
+    text-overflow: ellipsis;
+    text-align: justify;
+    line-height: 30px;
+    max-height: 100px;
+    max-width: 350px;
+  }
+  .company-social {
+    display: flex;
+    gap: 20px;
+  }
+  .company-social > svg {
+    width: 30px;
+    height: 30px;
+  }
+  .footer-service-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer-service-nav > a {
+    color: white;
+  }
+  .footer-company-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .footer-company-info svg {
+    width: 20px;
+    height: 20px;
+  }
+  .footer-company-align {
+    display: flex;
+    gap: 10px;
+  }
+  .footer-company-info > h1 {
+    margin: 18px 0;
+  }
+  .footer-actions-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  /* -------------Media Query for Mobiles--------------- */
+  @media only screen and (min-device-width: 270px) and (max-device-width: 1200px) {
+    .footer-component {
+      box-sizing: border-box;
+      font-size: 12px;
+      padding: 10px;
+    }
+    .footer-nav-logo {
+      font-size: 30px;
+    }
+    .footer-component {
+      grid-template-columns: auto;
+    }
+    .company-social > svg {
+      width: 25px;
+      height: 25px;
+    }
+    .footer-company-info > h1 {
+      font-size: 1.5em;
+    }
+    .company-info-comp,
+    .footer-service-nav,
+    .footer-company-info {
+      gap: 10px;
+    }
+  }
+  @media only screen and (min-device-width: 270px) and (max-device-width: 500px) {
+    .footer-actions-container {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-company-info {
+      align-items: center;
+    }
+    .company-desc {
+      line-height: 24px;
+    }
+  }
