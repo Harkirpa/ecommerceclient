@@ -1,8 +1,13 @@
 import React from 'react'
+import SoundbarsPage from '../../Singlepages/SoundbarsPage'
 
 function Soundbars() {
+  const category="electronics"
+  const subcat="soundbars"
   return (
-    <div>Soundbars</div>
+   <>
+   <SoundbarsPage value={category} subcat={subcat}/>
+   </>
   )
 }
 

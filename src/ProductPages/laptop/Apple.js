@@ -1,8 +1,13 @@
 import React from 'react'
+import AppleLaptop from '../../Singlepages/AppleLaptop'
 
 function Apple() {
+  const category="laptop"
+  const subcat="Apple"
   return (
-    <div>Apple</div>
+   <>
+     <AppleLaptop value={category} subcat={subcat}/>
+   </>
   )
 }
 

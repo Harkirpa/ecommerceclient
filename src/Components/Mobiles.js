@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import Navbar from './Navbar';
-import { AiFillStar } from "react-icons/ai";
+import { FaShoppingCart } from 'react-icons/fa'
 import "../Css/ProdItem.css"
 import { Link } from "react-router-dom";
 function Mobiles() {
@@ -17,37 +17,32 @@ function Mobiles() {
     <>
       <Navbar />
       <div className="productContainer">
-        {watch.map((item, index) => {
-          return (
-            <div className="laptop_container">
-              <div className="prodContItem">
-              <Link to={`/single/${item.id}`} key={index}>
-                  <div className="prodContItemData">
-                    <div className="prodContItemInfo">
-                      <div className="prodContItemImage">
-                        <img src={item.Image} alt="Product Img" />
-                      </div>
-                      <div className="prodContItemInfoDetails">
-                        <h3 className="prodContItemHeading">{item.name}</h3>
+        <div className="laptop_container">
 
-                        <div className="dyProductRatingsCont">
-                          <div className="prodContRating">
-                            {item.Rating} <AiFillStar />
-                          </div>
-                          <div className="dyProductOriPrice">{item.MRP}</div>
-                        </div>
-                      </div>
+          {
+            watch.map((item, index) => {
+              return (
+                <div className="prodContItem">
+                  <Link to={`/single/${item.id}`} key={index}>
+                    <div className="prodContItemImage">
+                      <img src={item.Image} alt="Product Img" />
                     </div>
-                  </div>
-                </Link>
-              </div>
-              <hr />
-            </div>
-          )
-        })
+                    <h3 className="prodContItemHeading">{item.name}</h3>
+                    <div className="dyProductRatingsCont">
+                      <h3 className="dyProductOriPrice">{item.MRP}</h3>
+                      <Link className="addtocartbtn" state={{ index: item }} ><button className='adbtn'><FaShoppingCart />  Add To Cart</button>
+                      </Link>
+                    </div>
+                    </Link>
+                </div>
+                )
+            })
 
-        }
+          }
+        </div>
+
       </div>
+
 
 
 

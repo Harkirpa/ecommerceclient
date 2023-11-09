@@ -26,25 +26,14 @@ function Single() {
         .map((item, index) => {
                   return (
                     <div key={index} className="dyProductCont">
-                      <div className="dyProductCont1">
-                        <div className="dyProductImgCont">
+                      <div  className="dyProductImg">
                           <img
-                            className="dyProductImg"
                             src={item.Image}
                             alt="img not found"
                           />
-                        </div>
-                        <div className="dyProductBtns">
-                          <button className="btnAddCart">
-                            Add to Cart
-                          </button>
-                          <button className="btnBuyNow">
-                            Buy Now
-                          </button>
-                        </div>
-                      </div>
-                      <div className="dyProductDesc">
-                        <div className="dyProductHead">{item.name}</div>
+                          </div>
+                           <div className="dyProductDesc">
+                                 <h4>{item.name}</h4>
                           <div className="dyProductRatingsCont">
                             <div className="dyProductRating">
                               {item.Rating} <AiFillStar />
@@ -52,7 +41,24 @@ function Single() {
                             Ratings
                           </div>
                           </div>
-                    </div>
+                      <h2>
+                              {item.MRP}
+                            </h2>
+                          <ul>
+                            <li>{item.Availabeoffer1}</li>
+                            <li>{item.Availabeoffer2}</li>
+                          </ul>
+                    <div className="dyProductBtns">
+                          <button className="btnAddCart">
+                            Add to Cart
+                          </button>
+                          <button className="btnBuyNow">
+                            Buy Now
+                          </button>
+                        </div>
+                    
+                     
+                        </div>
                   );
                 })}
          

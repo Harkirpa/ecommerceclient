@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios';
 import Navbar from './Navbar';
-import { AiFillStar } from "react-icons/ai";
+import { FaShoppingCart } from 'react-icons/fa'
 import "../Css/ProdItem.css"
 import { Link } from "react-router-dom";
 function Laptop() {
@@ -15,40 +15,33 @@ const [laptop,setLaptop]=useState([]);
   return (
    <>
     <Navbar/>
-   <div className="productContainer">
-        {laptop.map((item,index)=>{
-            return (
-                <div className="laptop_container">
-            <div className="prodContItem">
-        <Link to={`/single/${item.id}`} key={index}>
-          <div className="prodContItemData">
-            <div className="prodContItemInfo">
-              <div className="prodContItemImage">
-                <img src={item.Image} alt="Product Img" />
-              </div>
-              <div className="prodContItemInfoDetails">
-                <h3 className="prodContItemHeading">{item.name}</h3>
-              
-                  <div className="dyProductRatingsCont">
-                    <div className="prodContRating">
-                      {item.Rating} <AiFillStar />
+    <div className="productContainer">
+        <div className="laptop_container">
+
+          {
+            laptop.map((item, index) => {
+              return (
+                <div className="prodContItem">
+                  <Link to={`/single/${item.id}`} key={index}>
+                    <div className="prodContItemImage">
+                      <img src={item.Image} alt="Product Img" />
                     </div>
-                    <div className="dyProductOriPrice">{item.MRP}</div>
-                  </div>
-              </div>
-            </div>
-          </div>
-          </Link>
-      </div>
-      <hr />
+                    <h3 className="prodContItemHeading">{item.name.slice(0,50)}</h3>
+                    <div className="dyProductRatingsCont">
+                      <h3 className="dyProductOriPrice">{item.MRP}</h3>
+                      <Link className="addtocartbtn" state={{ index: item }} ><button className='adbtn'><FaShoppingCart />  Add To Cart</button>
+                      </Link>
+                    </div>
+                    </Link>
                 </div>
-            )
-        }) 
-                 
-        }
+                )
+            })
+
+          }
         </div>
-   
-    
+
+      </div>
+
 
    </>
   )

@@ -1,0 +1,88 @@
+.Container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  .acontainer {
+    background-image: url("https://images.unsplash.com/photo-1635776062043-223faf322554?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 75%;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .text{
+    width: 45%;
+  }
+  .formContainer {
+    width: 45%;
+    background: rgba(255, 255, 255, 0.35);
+    box-shadow: 20px 20px 40px -6px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(9.5px);
+    -webkit-backdrop-filter: blur(9.5px);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+  
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+  }
+  .formContainer div {
+    margin: 10px;
+  }
+  .formContainer div label {
+    display: inline-block;
+    width: 150px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .formContainer div input {
+    height: 40px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #9e9e9ec0;
+  }
+  
+  /*  */
+  .btn-submit {
+    min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border: 1px solid #000;
+  color: #000;
+  background: transparent;
+  z-index: 0;
+  }
+  
+  .btn-submit:hover:after{
+  top:0;
+  left: 0;
+  }
+  
+  .btn-submit::after {
+    content: "";
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 5px;
+    left: 5px;
+    transition: 0.2s;
+    background-color: #6c757d;
+  }
+ 

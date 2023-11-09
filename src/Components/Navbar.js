@@ -3,8 +3,17 @@ import { Link, NavLink } from "react-router-dom";
 import "../Css/Navbar.css";
 import { LuShoppingCart } from "react-icons/lu";
 import { useSelector } from "react-redux";
+import {  toast } from "react-toastify";
 function Navbar() {
   const data = useSelector((state) => state.Cart.cart);
+  const logoutbtn = () => {
+    localStorage.removeItem("token");
+    toast.success("Logged Out Successfully", {
+      autoClose: 2000,
+    });
+    window.location.reload(false);
+  };
+
  return (
     <div className="NavbarContainer">
 <div className="ContainerMain">
@@ -29,6 +38,16 @@ function Navbar() {
                <div className="cartCount">{data.length}</div>
             </div>
           </Link>
+          {localStorage.getItem("token") ? (
+            <button className="btnlogout" onClick={logoutbtn}>
+              Logout
+            </button>
+          ) : (
+            <Link className="" to="/login">
+              <button className="btnlogout">Login</button>
+            </Link>
+          )}
+      
         </div>
       </div>
       <div className="navbarRoutes">

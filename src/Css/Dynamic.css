@@ -1,50 +1,55 @@
-.dynamicProdContainer {
-  padding: 30px;
-}
 .dyProductCont {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 10px;
-}
-.dyProductCont1 {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+    padding: 50px;
 }
 .dyProductBtns {
   display: flex;
   justify-content: space-evenly;
 }
-.dyProductImgCont {
-  position: relative;
-  height: 90%;
+.btnBuyNow:hover {
+  background-position: right center;
 }
-.dyProductImg {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  top: 0;
-  margin: auto;
-  opacity: 1;
-  max-width: 100%;
-  max-height: 100%;
+.btnAddCart:hover{
+  background-position: right center;
 }
-.dyProductDesc {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-.dyProductHead {
-  font-size: 1.6rem;
+.btnAddCart, .btnBuyNow{
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
   font-weight: bold;
-  margin: 10px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background-size: 120% auto;
+  background-image: linear-gradient(315deg, #4ecdc4 0%, #c797eb 75%);
 }
-
+.btnAddCart, .btnBuyNow :active{
+  top: 2px;
+}
+.dyProductCont .dyProductImg  img{
+  width: 100%;
+  text-align: center;
+  height: 400px;
+  border-radius: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.dyProductCont .dyProductDesc{
+  margin-bottom: 30px;
+  width: 50%;
+}
 .dyProductRatingsCont {
   display: flex;
   gap: 5px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   align-items: center;
 }
 .dyProductRating {
@@ -56,52 +61,15 @@
   padding: 5px;
   border-radius: 8px;
 }
-
-.dyProductAmountCont {
-  display: flex;
-  align-items: flex-end;
-  gap: 5px;
+ul{
+  margin-top: 0;
+    margin-bottom: 1rem;
 }
-.dyProductDiscount {
-  font-size: 1.8rem;
-  font-weight: bold;
+h2{
+position: relative;
+top: -300px;
+left:400px;
 }
-.dyProductOriPrice {
-  padding: 5px;
-  text-decoration: line-through;
-  color: gray;
-}
-.dyProductOriDiscountPer {
-  padding: 5px;
-  font-size: 1.1rem;
-  color: #11a411;
-  font-weight: bold;
-}
-
-.dyProductHighlightsCont {
-  margin: 10px 0;
-  gap: 10px;
-  display: flex;
-  font-size: 0.8rem;
-  font-weight: bold;
-}
-.dyProductHighlightsCont ul {
-  margin: 0;
-  font-weight: 400;
-}
-.dyProductHighlightsCont ul li {
-  margin-bottom: 5px;
-}
-.dyProductHighlightsCont ul ::marker {
-  color: gray;
-}
-.dyProductDesciption {
-  font-size: 0.9rem;
-}
-.dyProductDesciptionHead {
-  font-weight: bold;
-}
-
 @media only screen and (min-device-width: 270px) and (max-device-width: 1200px) {
   .dyProductCont {
     grid-template-columns: auto;
@@ -115,26 +83,6 @@
   .dyProductHead {
     font-size: 1.4rem;
   }
-  .dyProductDiscount {
-    font-size: 1.2rem;
-  }
-  .dyProductOriPrice {
-    font-size: 0.9rem;
-  }
-  .dyProductOriDiscountPer {
-    font-size: 0.9rem;
-  }
 }
 @media only screen and (min-device-width: 270px) and (max-device-width: 500px) {
-  .dyProductDiscount {
-    font-size: 0.9rem;
-  }
-  .dyProductOriPrice {
-    font-size: 0.7rem;
-    padding: 3px;
-  }
-  .dyProductOriDiscountPer {
-    font-size: 0.7rem;
-    padding: 3px;
-  }
 }

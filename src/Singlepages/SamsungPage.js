@@ -1,13 +1,13 @@
 import axios from "axios"
 import { useEffect,useState } from "react"
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import Navbar from "../Components/Navbar";
 import { FaShoppingCart } from 'react-icons/fa'
 import "../Css/ProdItem.css"
-const SingleProdPage2=()=>{
+const SamsungPage=()=>{
    const [value,setValue]=useState("");
    useEffect(()=>{
-      axios.get(`https://ecommerce-4sw2.onrender.com/api/books`)
+      axios.get(`https://ecommerce-4sw2.onrender.com/api/blog`)
       .then((data)=>setValue(data.data)) 
      .catch((e)=>console.log("error",e))
  },[])
@@ -19,7 +19,7 @@ const SingleProdPage2=()=>{
         <div className="productContainer">
         <div className="laptop_container">
      {
-       value&& value.filter((item)=>item.subcat==="literature").map((item,index)=>{
+       value&& value.filter((item)=>item.subcat==="Samsung").map((item,index)=>{
             return(
                 <div className="prodContItem">
                 <Link to={`/single/${item.id}`} key={index}>
@@ -43,4 +43,4 @@ const SingleProdPage2=()=>{
         </>
     ) 
 }
-export default SingleProdPage2
+export default SamsungPage

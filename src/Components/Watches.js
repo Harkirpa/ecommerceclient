@@ -2,57 +2,50 @@ import React, { useEffect } from 'react'
 import { useState } from 'react';
 import axios from 'axios';
 import Navbar from './Navbar';
-import { AiFillStar } from "react-icons/ai";
+// import { AiFillStar } from "react-icons/ai";
+import { FaShoppingCart } from 'react-icons/fa'
 import "../Css/ProdItem.css"
 import { Link } from "react-router-dom";
 function Watches() {
-   const [watch,setWatch]=useState([]);
-  useEffect(()=>{
+  const [watch, setWatch] = useState([]);
+  useEffect(() => {
     axios
-    .get(`https://ecommerce-4sw2.onrender.com/api/watches`)
-         .then((data)=>setWatch(data.data)) 
-        .catch((e)=>console.log("error",e))
-  },[])
+      .get(`https://ecommerce-4sw2.onrender.com/api/watches`)
+      .then((data) => setWatch(data.data))
+      .catch((e) => console.log("error", e))
+  }, [])
   // console.log(watch)
   return (
-   <>
-   <Navbar/>
-   <div className="productContainer">
-        {watch.map((item,index)=>{
-            return (
-                <div className="laptop_container">
-            <div className="prodContItem">
-            <Link to={`/single/${item.id}`} key={index}>
-          <div className="prodContItemData">
-            <div className="prodContItemInfo">
-              <div className="prodContItemImage">
-                <img src={item.Image} alt="Product Img" />
-              </div>
-              <div className="prodContItemInfoDetails">
-                <h3 className="prodContItemHeading">{item.name}</h3>
-            <div className="dyProductRatingsCont">
-                    <div className="prodContRating">
-                      {item.Rating} <AiFillStar />
+    <>
+      <Navbar />
+      <div className="productContainer">
+        <div className="laptop_container">
+
+          {
+            watch.map((item, index) => {
+              return (
+                <div className="prodContItem">
+                  <Link to={`/single/${item.id}`} key={index}>
+                    <div className="prodContItemImage">
+                      <img src={item.Image} alt="Product Img" />
                     </div>
-                    <div className="dyProductOriPrice">{item.MRP}</div>
-                  </div>
-              </div>
-            </div>
-          </div>
-        </Link>
-      </div>
-      <hr />
-  
+                    <h3 className="prodContItemHeading">{item.name}</h3>
+                    <div className="dyProductRatingsCont">
+                      <h3 className="dyProductOriPrice">{item.MRP}</h3>
+                      <Link className="addtocartbtn" to='/cart' state={{ index: item }} ><button className='adbtn'><FaShoppingCart />  Add To Cart</button>
+                      </Link>
+                    </div>
+                    </Link>
                 </div>
-            )
-        }) 
-                 
-        }
+                )
+            })
+
+          }
         </div>
-  
-    
-    
-   </>
+
+      </div>
+
+    </>
   )
 }
 

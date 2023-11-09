@@ -1,8 +1,13 @@
 import React from 'react'
+import SamsungPage from '../../Singlepages/SamsungPage'
 
 function Samsung() {
+  const category="Mobile"
+  const subcat="samsung"
   return (
-    <div>Samsung</div>
+ <>
+    <SamsungPage value={category} subcat={subcat}/>
+ </>
   )
 }
 

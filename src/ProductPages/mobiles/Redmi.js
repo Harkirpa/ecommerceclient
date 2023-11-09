@@ -1,8 +1,13 @@
 import React from 'react'
+import RedmiPage from '../../Singlepages/RedmiPage'
 
 function Redmi() {
+  const category="mobiles"
+  const subcat="redmi"
   return (
-    <div>Redmi</div>
+  <>
+     <RedmiPage value={category} subcat={subcat}/>
+  </>
   )
 }
 

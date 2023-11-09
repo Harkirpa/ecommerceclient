@@ -1,8 +1,13 @@
 import React from 'react'
+import AsusPage from '../../Singlepages/AsusPage'
 
 function Asus() {
+  const category="laptop"
+  const subcat="ASUS"
   return (
-    <div>Asus</div>
+   <>
+     <AsusPage value={category} subcat={subcat}/>
+   </>
   )
 }
 
