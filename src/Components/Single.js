@@ -67,9 +67,6 @@ function Single() {
                           <button className="btnAddCart" onClick={onAddCart}>
                             Add to Cart
                           </button>
-                          <button className="btnBuyNow">
-                            Buy Now
-                          </button>
                         </div>
                     
                      

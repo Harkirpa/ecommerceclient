@@ -14,13 +14,13 @@ const CartPage = () => {
     totalSaveCart: 0,
   });
   const data = useSelector((state) => state.Cart.cart);
-  console.log(data);
+  // console.log(data);
   useEffect(() => {
     setPriceDetails({
-      totalOrigPrice: data.reduce((acc, obj) => {
-        return acc + obj.MRP;
+      totalOrigPrice: data.reduce((total,item) => {
+        return total + item.MRP;
       }, 0),
-      totalCartAmount: data.length * 100,
+      totalCartAmount: data.length,
     });
   }, [data]);
   console.log(priceDetails);
@@ -57,6 +57,8 @@ const CartPage = () => {
                             >
                               Remove
                             </button>
+                  
+             
                           </div>
                         </div>
                         <div className="cartItemPricings">
@@ -110,7 +112,7 @@ const CartPage = () => {
                         {(
                           priceDetails.totalOrigPrice +
                            priceDetails.totalCartAmount
-                        ).toLocaleString("en-IN")}
+                        ) }
                       </div>
                     </div>
                   </div>
