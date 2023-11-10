@@ -6,7 +6,7 @@
     background-color: skyblue;
   }
   .searchInput {
-    width: 70%;
+    width: 57%;
     height: 5vh;
     border: 1px solid #0000002d;
     border-radius: 10px;
@@ -129,4 +129,9 @@
   .subnav:hover .subnav-content {
     display: flex;
     justify-content: center;
+  }
+  @media only screen and (min-device-width: 270px) and (max-device-width: 500px) {
+    .brandLogo{
+      font-size: 1rem;
+    }
   }

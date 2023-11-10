@@ -2,7 +2,7 @@ import React from 'react'
 import AsusPage from '../../Singlepages/AsusPage'
 
 function Asus() {
-  const category="laptop"
+  const category="Laptop"
   const subcat="ASUS"
   return (
    <>

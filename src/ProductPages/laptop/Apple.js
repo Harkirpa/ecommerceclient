@@ -2,7 +2,7 @@ import React from 'react'
 import AppleLaptop from '../../Singlepages/AppleLaptop'
 
 function Apple() {
-  const category="laptop"
+  const category="Laptop"
   const subcat="Apple"
   return (
    <>

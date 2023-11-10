@@ -3,10 +3,13 @@ import { useEffect, useState } from "react";
 import "../Css/Dynamic.css";
 import { useParams } from "react-router-dom";
 import Navbar from "./Navbar";
+import { useDispatch } from "react-redux";
+import { AddtoCart } from "../Redux/Cart";
 import { AiFillStar } from "react-icons/ai";
 function Single() {
     const { id } = useParams();
     const newid = parseInt(id);
+    const dispatch = useDispatch();
     console.log(newid);
     const [mobileData, setMobileData] = useState([]);
   
@@ -16,6 +19,18 @@ function Single() {
         .then((res) => setMobileData(res.data))
         .catch((err) => console.log(err));
     }, [id]);
+    const onAddCart = () => {
+      mobileData
+        .filter((item) => item.id === newid)
+        .map((dataprod) => {
+          // console.log(dataprod);
+          const { id, Image, name,  MRP } = dataprod;
+          // console.log(id, image, heading);
+          dispatch(AddtoCart({ id, Image,name,MRP }));
+  
+          return null;
+        });
+    };
 
   return (
     <>
@@ -41,7 +56,7 @@ function Single() {
                             Ratings
                           </div>
                           </div>
-                      <h2>
+                      <h2 className="Mrp">
                               {item.MRP}
                             </h2>
                           <ul>
@@ -49,7 +64,7 @@ function Single() {
                             <li>{item.Availabeoffer2}</li>
                           </ul>
                     <div className="dyProductBtns">
-                          <button className="btnAddCart">
+                          <button className="btnAddCart" onClick={onAddCart}>
                             Add to Cart
                           </button>
                           <button className="btnBuyNow">

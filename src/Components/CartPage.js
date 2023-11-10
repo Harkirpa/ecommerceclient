@@ -10,28 +10,17 @@ const CartPage = () => {
   const dispatch = useDispatch();
   const [priceDetails, setPriceDetails] = useState({
     totalOrigPrice: 0,
-    buyMoreSaveMore: 0,
     totalCartAmount: 0,
     totalSaveCart: 0,
   });
   const data = useSelector((state) => state.Cart.cart);
-  // console.log(data);
+  console.log(data);
   useEffect(() => {
     setPriceDetails({
       totalOrigPrice: data.reduce((acc, obj) => {
-        return acc + Number(obj.price.replaceAll(",", ""));
+        return acc + obj.MRP;
       }, 0),
-      totalDiscount: data.reduce((acc, obj) => {
-        if (obj.discount) {
-          return (
-            acc +
-            (Number(obj.price.replaceAll(",", "")) -
-              Number(obj.discount.replaceAll(",", "")))
-          );
-        }
-        return acc;
-      }, 0),
-      buyMoreSaveMore: data.length * 100,
+      totalCartAmount: data.length * 100,
     });
   }, [data]);
   console.log(priceDetails);
@@ -51,19 +40,19 @@ const CartPage = () => {
               <div>
                 {data &&
                   data.map((item, index) => {
-                    // console.log(item);
+                    console.log(item);
                     return (
                       <div className="cartItem" key={index}>
                         <div className="cartItemSubPart">
                           <div className="cartItemImage">
-                            <img src={item.image} alt="Product Img" />
+                            <img src={item.Image} alt="Product Img" />
                           </div>
                           <div className="cartItemDesc">
-                            <div className="cartItemHead">{item.heading}</div>
+                            <div className="cartItemHead">{item.name}</div>
                             <button
                               className="cartItemRemoveBtn"
                               onClick={() =>
-                                dispatch(RemoveItem({ id: item._id }))
+                                dispatch(RemoveItem({ id: item.id }))
                               }
                             >
                               Remove
@@ -71,21 +60,10 @@ const CartPage = () => {
                           </div>
                         </div>
                         <div className="cartItemPricings">
-                          {item.discount ? (
-                            <>
-                              <div className="cartItemDiscount">
-                                ₹{item.discount}
-                              </div>
-                              <div className="cartItemPrice">₹{item.price}</div>
-                              <div className="cartItemPercent">
-                                {item.percent} %
-                              </div>
-                            </>
-                          ) : (
                             <div className="cartItemDiscount">
-                              ₹{item.price}
+                              ₹{item.MRP}
                             </div>
-                          )}
+                      
                         </div>
                       </div>
                     );
@@ -100,18 +78,6 @@ const CartPage = () => {
                     <div>Price({data.length} item)</div>
                     <div>
                       ₹ {priceDetails.totalOrigPrice.toLocaleString("en-IN")}
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div>Discount</div>
-                    <div className="discountGreen">
-                      - ₹ {priceDetails.totalDiscount.toLocaleString("en-IN")}
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div>Buy more & save more</div>
-                    <div className="discountGreen">
-                      - ₹ {priceDetails.buyMoreSaveMore.toLocaleString("en-IN")}
                     </div>
                   </div>
                   <div className="row">
@@ -142,24 +108,11 @@ const CartPage = () => {
                       <div>
                         ₹
                         {(
-                          priceDetails.totalOrigPrice -
-                          priceDetails.totalDiscount -
-                          priceDetails.buyMoreSaveMore
+                          priceDetails.totalOrigPrice +
+                           priceDetails.totalCartAmount
                         ).toLocaleString("en-IN")}
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div
-                    className="discountGreen"
-                    style={{ fontSize: "0.9rem", fontWeight: "700" }}
-                  >
-                    You will save ₹
-                    {(
-                      priceDetails.totalDiscount + priceDetails.buyMoreSaveMore
-                    ).toLocaleString("en-IN")}{" "}
-                    on this order
                   </div>
                 </div>
               </div>

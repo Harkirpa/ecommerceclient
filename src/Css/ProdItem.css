@@ -45,7 +45,7 @@
 }
 
 .adbtn {
-  min-width: 130px;
+  min-width: 108px;
   height: 40px;
   color: #fff;
   padding: 5px 10px;
@@ -79,18 +79,27 @@
 
 @media only screen and (min-device-width: 270px) and (max-device-width: 500px) {
   .prodContItem {
-    padding: 2px;
+    padding: 41px;
   }
 
   .prodContItemImage {
-    margin: 2px;
-    height: 80px;
-    width: 80px;
-    aspect-ratio: 1/1;
+    margin: -11px;
+    height: 127px;
+    width: 96px;
+ 
   }
 
   .prodContItemHeading {
     font-size: 0.7rem;
     margin: 5px 0;
   }
+  .laptop_container{
+    width: 80vw;
+}
+.adbtn{
+  min-width:80px;
+  left:-94px;
+  bottom: -74px;
+}
+
 }
