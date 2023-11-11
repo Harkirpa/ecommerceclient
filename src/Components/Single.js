@@ -6,13 +6,34 @@ import Navbar from "./Navbar";
 import { useDispatch } from "react-redux";
 import { AddtoCart } from "../Redux/Cart";
 import { AiFillStar } from "react-icons/ai";
+import { toast } from "react-toastify";
 function Single() {
+  const notify = () => toast(`Item is add on cart `);
+  const [verified, setVerified] = useState(false);
+
     const { id } = useParams();
     const newid = parseInt(id);
     const dispatch = useDispatch();
     console.log(newid);
     const [mobileData, setMobileData] = useState([]);
+    useEffect(() => {
+      const token = localStorage.getItem("token");
+      console.log("Token:", token);
   
+      axios
+        .get("https://ecommerce-4sw2.onrender.com/api/", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          console.log(response.data);
+          setVerified(true);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    }, []);
     useEffect(() => {
       axios
         .get("https://ecommerce-4sw2.onrender.com/api/dummy")
@@ -26,8 +47,13 @@ function Single() {
           // console.log(dataprod);
           const { id, Image, name,  MRP } = dataprod;
           // console.log(id, image, heading);
-          dispatch(AddtoCart({ id, Image,name,MRP }));
-  
+          if (verified) {
+           dispatch(AddtoCart({ id, Image,name,MRP }));
+          notify()
+          }
+        else {
+          alert("Please log in first to add to cart.");
+        }
           return null;
         });
     };

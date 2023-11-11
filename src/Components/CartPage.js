@@ -17,8 +17,8 @@ const CartPage = () => {
   // console.log(data);
   useEffect(() => {
     setPriceDetails({
-      totalOrigPrice: data.reduce((total,item) => {
-        return total + item.MRP;
+      totalOrigPrice: data.reduce((total, item) => {
+        return total + item.MRP.replace(",","");
       }, 0),
       totalCartAmount: data.length,
     });
@@ -57,15 +57,15 @@ const CartPage = () => {
                             >
                               Remove
                             </button>
-                  
-             
+
+
                           </div>
                         </div>
                         <div className="cartItemPricings">
-                            <div className="cartItemDiscount">
-                              ₹{item.MRP}
-                            </div>
-                      
+                          <div className="cartItemDiscount">
+                            ₹{item.MRP}
+                          </div>
+
                         </div>
                       </div>
                     );
@@ -111,8 +111,8 @@ const CartPage = () => {
                         ₹
                         {(
                           priceDetails.totalOrigPrice +
-                           priceDetails.totalCartAmount
-                        ) }
+                          priceDetails.totalCartAmount
+                        )}
                       </div>
                     </div>
                   </div>
