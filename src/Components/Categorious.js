@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Categorious() {
   return (
     <div className="categoriesContainer">
-      <Link className="productLink" to="/Phones">
+      <Link className="productLink" to="/mobiles">
         <div className="itembox">
           <div className="itemImg">
             <div className="imgs ">
@@ -33,7 +33,7 @@ function Categorious() {
           Electronics
         </div>
       </Link>
-      <Link className="productLink" to="/Laptops">
+      <Link className="productLink" to="/laptop">
         <div className="itembox">
           <div className="itemImg">
             <div className="imgs ">

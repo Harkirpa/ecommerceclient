@@ -1,10 +1,15 @@
-import React from "react";
+import React ,{useState}from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../Css/Navbar.css";
 import { LuShoppingCart } from "react-icons/lu";
 import { useSelector } from "react-redux";
 import {  toast } from "react-toastify";
 function Navbar() {
+  const [isMobile, setIsMobile] = useState(false);
+  const Dropdown = () => {
+    setIsMobile(isMobile);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const data = useSelector((state) => state.Cart.cart);
   const logoutbtn = () => {
     localStorage.removeItem("token");
@@ -26,6 +31,14 @@ function Navbar() {
           <span className="Logo6">R</span>
           <span className="Logo7">T</span>
         </div>
+        <img
+            onClick={() => setIsMobile(!isMobile)}
+            className="Burger_Icon"
+            width="50"
+            height="50"
+            src="https://img.icons8.com/ios/50/menu--v7.png"
+            alt="icon not found"
+          />
         <input
           className="searchInput"
           type="text"
@@ -50,13 +63,13 @@ function Navbar() {
       
         </div>
       </div>
-      <div className="navbarRoutes">
-        <NavLink activeclassname="active" className="navbarLink" to="/">
+      <div className="navbarRoutes" id={isMobile? "DropDown" : "Navbar"}>
+        <NavLink activeclassname="active"  onClick={Dropdown} className="navbarLink" to="/">
           Home
         </NavLink>
 
         <div class="subnav">
-          <NavLink activeclassname="active" className="navbarLink" to="/mobiles">
+          <NavLink activeclassname="active" onClick={Dropdown} className="navbarLink" to="/mobiles">
             Mobile & Tablets 
           </NavLink>
           <div class="subnav-content">
@@ -70,7 +83,7 @@ function Navbar() {
           <NavLink
             activeclassname="active"
             className="navbarLink"
-            to="/electronics"
+            to="/electronics" onClick={Dropdown}
           >
             Electronics
           </NavLink>
@@ -85,7 +98,7 @@ function Navbar() {
           <NavLink
             activeclassname="active"
             className="navbarLink"
-            to="/laptop"
+            to="/laptop" onClick={Dropdown}
           >
             Laptops 
           </NavLink>
@@ -100,7 +113,7 @@ function Navbar() {
           <NavLink
             activeclassname="active"
             className="navbarLink"
-            to="/watches"
+            to="/watches" onClick={Dropdown}
           >
             Watches
           </NavLink>
@@ -114,7 +127,7 @@ function Navbar() {
           <NavLink
             activeclassname="active"
             className="navbarLink"
-            to="/books"
+            to="/books" onClick={Dropdown}
           >
             Books
           </NavLink>
