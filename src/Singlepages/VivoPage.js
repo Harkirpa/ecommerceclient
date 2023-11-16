@@ -7,7 +7,7 @@ import "../Css/ProdItem.css"
 const VivoPage=()=>{
    const [value,setValue]=useState("");
    useEffect(()=>{
-      axios.get(`https://ecommerce-4sw2.onrender.com/api/blog`)
+      axios.get(`https://serverecommerce-5g49.onrender.com/api/blog`)
       .then((data)=>setValue(data.data)) 
      .catch((e)=>console.log("error",e))
  },[])

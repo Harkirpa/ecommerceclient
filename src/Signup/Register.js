@@ -24,7 +24,7 @@ function Register() {
     console.log(inputs);
     axios
       .post(
-        `https://ecommerce-4sw2.onrender.com/api/register`,
+        `https://serverecommerce-5g49.onrender.com/api/register`,
         inputs
       )
       .then((res) => {
@@ -62,10 +62,10 @@ function Register() {
           </div>
           <form className="formContainer">
             <div>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="username">Name</label>
               <input
                 type="text"
-                name="name"
+                name="username"
                 id="name"
                 onChange={changeHandle}
                 placeholder="Enter Name"

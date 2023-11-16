@@ -8,7 +8,7 @@ function Mobiles() {
   const [watch, setWatch] = useState([]);
   useEffect(() => {
     axios
-      .get(`https://ecommerce-4sw2.onrender.com/api/blog`)
+      .get(`https://serverecommerce-5g49.onrender.com/api/blog`)
       .then((data) => setWatch(data.data))
       .catch((e) => console.log("error", e))
   }, [])

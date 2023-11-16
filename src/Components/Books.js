@@ -8,7 +8,7 @@ function Books() {
   const [watch,setWatch]=useState([]);
   useEffect(()=>{
     axios
-    .get(`https://ecommerce-4sw2.onrender.com/api/books`)
+    .get(`https://serverecommerce-5g49.onrender.com/api/books`)
          .then((data)=>setWatch(data.data)) 
         .catch((e)=>console.log("error",e))
   },[])

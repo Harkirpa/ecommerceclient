@@ -7,7 +7,7 @@ import "../Css/ProdItem.css"
 const AsusPage=()=>{
    const [value,setValue]=useState("");
    useEffect(()=>{
-      axios.get(`https://ecommerce-4sw2.onrender.com/api/laptop`)
+      axios.get(`https://serverecommerce-5g49.onrender.com/api/laptop`)
       .then((data)=>setValue(data.data)) 
      .catch((e)=>console.log("error",e))
  },[])

@@ -10,7 +10,7 @@ function Watches() {
   const [watch, setWatch] = useState([]);
   useEffect(() => {
     axios
-      .get(`https://ecommerce-4sw2.onrender.com/api/watches`)
+      .get(`https://serverecommerce-5g49.onrender.com/api/watches`)
       .then((data) => setWatch(data.data))
       .catch((e) => console.log("error", e))
   }, [])

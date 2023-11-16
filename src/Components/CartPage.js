@@ -20,7 +20,7 @@ const CartPage = () => {
       totalOrigPrice: data.reduce((total, item) => {
         return total + item.MRP.replace(",","");
       }, 0),
-      totalCartAmount: data.length,
+      // totalCartAmount: data.length,
     });
   }, [data]);
   console.log(priceDetails);
@@ -63,7 +63,7 @@ const CartPage = () => {
                         </div>
                         <div className="cartItemPricings">
                           <div className="cartItemDiscount">
-                            ₹{item.MRP}
+                            {/* ₹{item.MRP} */}
                           </div>
 
                         </div>
@@ -79,7 +79,7 @@ const CartPage = () => {
                   <div className="row">
                     <div>Price({data.length} item)</div>
                     <div>
-                      ₹ {priceDetails.totalOrigPrice.toLocaleString("en-IN")}
+                      ₹ {priceDetails.totalOrigPrice}
                     </div>
                   </div>
                   <div className="row">
@@ -109,10 +109,10 @@ const CartPage = () => {
                     <div>
                       <div>
                         ₹
-                        {(
+                        {/* {(
                           priceDetails.totalOrigPrice +
                           priceDetails.totalCartAmount
-                        )}
+                        )} */}
                       </div>
                     </div>
                   </div>

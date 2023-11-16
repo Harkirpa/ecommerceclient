@@ -8,7 +8,7 @@ function Electronics() {
   const [watch, setWatch] = useState([]);
   useEffect(() => {
     axios
-      .get(`https://ecommerce-4sw2.onrender.com/api/electronics`)
+      .get(`https://serverecommerce-5g49.onrender.com/api/electronics`)
       .then((data) => setWatch(data.data))
       .catch((e) => console.log("error", e))
   }, [])

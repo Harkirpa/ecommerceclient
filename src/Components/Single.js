@@ -10,34 +10,34 @@ import { toast } from "react-toastify";
 function Single() {
   const notify = () => toast(`Item is add on cart `);
   const message = () => toast('Please log in first to add to cart.')
-  const [verified] = useState(false);
+  const [verified,setVerified] = useState(false);
 
   const { id } = useParams();
   const newid = parseInt(id);
   const dispatch = useDispatch();
   console.log(newid);
   const [mobileData, setMobileData] = useState([]);
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   console.log("Token:", token);
-  // setverified
-  //   axios
-  //     .get("https://ecommerce-4sw2.onrender.com/api/", {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       console.log(response.data);
-  //       setVerified(true);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching data:", error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    console.log("Token:", token);
+
+    axios
+      .get("https://serverecommerce-5g49.onrender.com/api/dummy", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((response) => {
+        console.log(response.data);
+        setVerified(true);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
   useEffect(() => {
     axios
-      .get("https://ecommerce-4sw2.onrender.com/api/dummy")
+      .get("https://serverecommerce-5g49.onrender.com/api/dummy")
       .then((res) => setMobileData(res.data))
       .catch((err) => console.log(err));
   }, [id]);
