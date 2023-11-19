@@ -39,7 +39,7 @@ function Login() {
           autoClose: 2000,
         });
         setTimeout(() => {
-          navi('/');
+          navi(-1);
         }, 3000);
       } else {
         toast.error(regSer.msg);

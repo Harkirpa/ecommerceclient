@@ -1,51 +1,43 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RemoveItem, EmptyCart } from "../Redux/Cart";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RemoveItem, EmptyCart, IncreaseQuantity, DecreaseQuantity } from "../Redux/Cart";
 import Navbar from "./Navbar";
 import "../Css/CartPage.css";
 import { ToastContainer, toast } from "react-toastify";
-
-
 const CartPage = () => {
   const dispatch = useDispatch();
-  const [priceDetails, setPriceDetails] = useState({
-    totalOrigPrice: 0,
-    totalCartAmount: 0,
-    totalSaveCart: 0,
-  });
   const data = useSelector((state) => state.Cart.cart);
-  // console.log(data);
-  useEffect(() => {
-    setPriceDetails({
-      totalOrigPrice: data.reduce((total, item) => {
-        return total + item.MRP.replace(",","");
-      }, 0),
-      // totalCartAmount: data.length,
-    });
-  }, [data]);
-  console.log(priceDetails);
+  const total = data.reduce((acc, item) => {
+    return acc + item.MRP * item.quantity;
+  }, 0);
+  const handleIncreaseQuantity = (id) => {
+    dispatch(IncreaseQuantity({ id }));
+  };
+  const handleDecreaseQuantity = (id) => {
+    dispatch(DecreaseQuantity({ id }));
+  };
   const checkOutBtn = () => {
     toast.success("Order Placed successfully", {
       autoClose: 2000,
     });
     dispatch(EmptyCart());
   };
+
   return (
     <>
       <Navbar />
       <div className="container cartContainer">
         {data.length ? (
           <>
-            <div className="cartItemsCol">
+          <div className="cartItemsCol">
               <div>
                 {data &&
                   data.map((item, index) => {
-                    console.log(item);
                     return (
                       <div className="cartItem" key={index}>
                         <div className="cartItemSubPart">
                           <div className="cartItemImage">
-                            <img src={item.Image} alt="Product Img" />
+                            <img src={item.Image} alt="Loading..." />
                           </div>
                           <div className="cartItemDesc">
                             <div className="cartItemHead">{item.name}</div>
@@ -57,15 +49,22 @@ const CartPage = () => {
                             >
                               Remove
                             </button>
-
-
+                            <button
+                              className="quantity-btn"
+                              onClick={() => handleDecreaseQuantity(item.id)}
+                            >
+                              -
+                            </button>
+                            <span className="quantity">{item.quantity}</span>
+                            <button
+                              className="quantity-btn"
+                              onClick={() => handleIncreaseQuantity(item.id)}
+                            >
+                              +
+                            </button>
+                            <h2>{item.MRP}</h2>
                           </div>
-                        </div>
-                        <div className="cartItemPricings">
-                          <div className="cartItemDiscount">
-                            {/* ₹{item.MRP} */}
-                          </div>
-
+                          {"₹ "+ item.MRP * item.quantity}
                         </div>
                       </div>
                     );
@@ -78,9 +77,13 @@ const CartPage = () => {
                 <div className="cartItemPriceCalcu">
                   <div className="row">
                     <div>Price({data.length} item)</div>
-                    <div>
-                      ₹ {priceDetails.totalOrigPrice}
-                    </div>
+                    <div className="cartItemPricings">
+                          <div className="cartItemDiscount">
+                            {/* {"₹ "+ item.MRP * item.quantity} */}
+                         
+                          </div>
+
+                        </div>
                   </div>
                   <div className="row">
                     <div>Delivery Charges</div>
@@ -108,11 +111,8 @@ const CartPage = () => {
                     <div>Total Amount</div>
                     <div>
                       <div>
-                        ₹
-                        {/* {(
-                          priceDetails.totalOrigPrice +
-                          priceDetails.totalCartAmount
-                        )} */}
+                        ₹{total}
+
                       </div>
                     </div>
                   </div>
@@ -136,5 +136,13 @@ const CartPage = () => {
     </>
   );
 };
+
+
+
+// <div className="total">
+//   <h2>Total </h2>
+//   <h1 style={{ color: "black" }}>{total}</h1>
+// </div>
+
 
 export default CartPage;

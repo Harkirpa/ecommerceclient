@@ -20,7 +20,6 @@ function Single() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     console.log("Token:", token);
-
     axios
       .get("https://serverecommerce-5g49.onrender.com/api/dummy", {
         headers: {
@@ -44,12 +43,18 @@ function Single() {
   const onAddCart = () => {
     mobileData
       .filter((item) => item.id === newid)
-      .map((dataprod) => {
+      .map((item) => {
         // console.log(dataprod);
-        const { id, Image, name, MRP } = dataprod;
-        // console.log(id, image, heading);
+        // const { id, Image, name, MRP ,quantity} = dataprod;
+        const {
+          id = item.id,
+          Image = item.Image,
+          MRP = parseInt(item.MRP),
+          name=item.name,
+          quantity = item.quantity,
+        } = item;
         if (verified) {
-          dispatch(AddtoCart({ id, Image, name, MRP }));
+          dispatch(AddtoCart({ id, Image, name, MRP,quantity }));
           notify()
         }
         else {
