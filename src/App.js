@@ -29,6 +29,7 @@ import Soundbars from "./ProductPages/electronics/Soundbars";
 import Hometheatre from "./ProductPages/electronics/Hometheatre";
 import CartPage from "./Components/CartPage";
 import PaymentPage from "./Components/PaymentPage";
+import FinalMessage from "./Components/FinalMessage";
 function App() {
   return (
     <div className="App">
@@ -66,6 +67,7 @@ function App() {
           <Route path="/electronics/hometheatres" element={<Hometheatre />} />
           <Route path="/cart" element={<CartPage/>}/>
           <Route path="/payment" element={<PaymentPage/>}/>
+          <Route path="/final" element={<FinalMessage/>}/>
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
