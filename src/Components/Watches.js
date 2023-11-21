@@ -31,7 +31,7 @@ function Watches() {
                     </div>
                     <h3 className="prodContItemHeading">{item.name}</h3>
                     <div className="dyProductRatingsCont">
-                      <h3 className="dyProductOriPrice">{item.MRP}</h3>
+                      <h3 className="dyProductOriPrice">₹ {item.MRP}</h3>
                       <Link className="addtocartbtn" to='/cart' state={{ index: item }} ><button className='adbtn'><FaShoppingCart />  Add To Cart</button>
                       </Link>
                     </div>

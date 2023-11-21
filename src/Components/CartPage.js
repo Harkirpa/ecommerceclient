@@ -1,27 +1,30 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RemoveItem, EmptyCart, IncreaseQuantity, DecreaseQuantity } from "../Redux/Cart";
+import { RemoveItem, IncreaseQuantity, DecreaseQuantity } from "../Redux/Cart";
 import Navbar from "./Navbar";
 import "../Css/CartPage.css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 const CartPage = () => {
   const dispatch = useDispatch();
+  const navi=useNavigate();
   const data = useSelector((state) => state.Cart.cart);
   const total = data.reduce((acc, item) => {
     return acc + item.MRP * item.quantity;
   }, 0);
+  console.log(total)
   const handleIncreaseQuantity = (id) => {
     dispatch(IncreaseQuantity({ id }));
   };
   const handleDecreaseQuantity = (id) => {
     dispatch(DecreaseQuantity({ id }));
   };
-  const checkOutBtn = () => {
-    toast.success("Order Placed successfully", {
-      autoClose: 2000,
-    });
-    dispatch(EmptyCart());
-  };
+  // const checkOutBtn = () => {
+  //   toast.success("Order Placed successfully", {
+  //     autoClose: 2000,
+  //   });
+  //   dispatch(EmptyCart());
+  // };
 
   return (
     <>
@@ -62,9 +65,9 @@ const CartPage = () => {
                             >
                               +
                             </button>
-                            <h2>{item.MRP}</h2>
                           </div>
-                          {"₹ "+ item.MRP * item.quantity}
+                 
+                 
                         </div>
                       </div>
                     );
@@ -77,13 +80,18 @@ const CartPage = () => {
                 <div className="cartItemPriceCalcu">
                   <div className="row">
                     <div>Price({data.length} item)</div>
+                    {data &&
+                  data.map((item, index) => {
+                    return (
                     <div className="cartItemPricings">
                           <div className="cartItemDiscount">
-                            {/* {"₹ "+ item.MRP * item.quantity} */}
+                            {"₹ "+ item.MRP * item.quantity}
                          
                           </div>
 
                         </div>
+                            );
+                          })} 
                   </div>
                   <div className="row">
                     <div>Delivery Charges</div>
@@ -116,12 +124,15 @@ const CartPage = () => {
                       </div>
                     </div>
                   </div>
+                
                 </div>
               </div>
               <div className="paymentBtns">
-                <button class="button-5" onClick={checkOutBtn}>
-                  Checkout
+                <button class="button-5" onClick={()=>navi('/payment')}>
+                  Place Your Order
+                  
                 </button>
+            
               </div>
             </div>
           </>
@@ -136,13 +147,4 @@ const CartPage = () => {
     </>
   );
 };
-
-
-
-// <div className="total">
-//   <h2>Total </h2>
-//   <h1 style={{ color: "black" }}>{total}</h1>
-// </div>
-
-
 export default CartPage;

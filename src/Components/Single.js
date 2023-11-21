@@ -44,8 +44,6 @@ function Single() {
     mobileData
       .filter((item) => item.id === newid)
       .map((item) => {
-        // console.log(dataprod);
-        // const { id, Image, name, MRP ,quantity} = dataprod;
         const {
           id = item.id,
           Image = item.Image,
