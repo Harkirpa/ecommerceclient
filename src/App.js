@@ -28,8 +28,10 @@ import Bluetooth from "./ProductPages/electronics/Bluetooth";
 import Soundbars from "./ProductPages/electronics/Soundbars";
 import Hometheatre from "./ProductPages/electronics/Hometheatre";
 import CartPage from "./Components/CartPage";
-import PaymentPage from "./Components/PaymentPage";
-import FinalMessage from "./Components/FinalMessage";
+
+
+import Success from "./Components/Success";
+import Cancel from "./Components/Cancel"
 function App() {
   return (
     <div className="App">
@@ -66,9 +68,11 @@ function App() {
           <Route path="/electronics/soundbars" element={<Soundbars />} />
           <Route path="/electronics/hometheatres" element={<Hometheatre />} />
           <Route path="/cart" element={<CartPage/>}/>
-          <Route path="/payment" element={<PaymentPage/>}/>
-          <Route path="/final" element={<FinalMessage/>}/>
+       
+       
           <Route path="*" element={<Error />} />
+          <Route  path='/success' element={<Success />}/>
+      <Route  path='/cancel' element={<Cancel />}/>
         </Routes>
         <Footer />
       </BrowserRouter>

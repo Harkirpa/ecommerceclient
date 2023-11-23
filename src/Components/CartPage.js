@@ -4,14 +4,41 @@ import { RemoveItem, IncreaseQuantity, DecreaseQuantity } from "../Redux/Cart";
 import Navbar from "./Navbar";
 import "../Css/CartPage.css";
 import { ToastContainer } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+import {loadStripe} from '@stripe/stripe-js';
 const CartPage = () => {
   const dispatch = useDispatch();
-  const navi=useNavigate();
+  // const navi=useNavigate();
   const data = useSelector((state) => state.Cart.cart);
+  console.log(data)
   const total = data.reduce((acc, item) => {
     return acc + item.MRP * item.quantity;
   }, 0);
+  const makePayment = async()=>{
+    const stripe = await loadStripe("pk_test_51OFWLzSIxNWsH91sny6yBVq3nkWJ2xLiwgmY86xfjzCpipl7jXxTVatZu1ILzPzOuTI13XEyFDZned4vUuHZ2QMu00f7DkYzXN");
+
+    const body = {
+        products:data
+    }
+    const headers = {
+        "Content-Type":"application/json"
+    }
+    const response = await fetch("http://localhost:4000/api/create-checkout-session",{
+        method:"POST",
+        headers:headers,
+        body:JSON.stringify(body)
+    });
+
+    const session = await response.json();
+
+    const result = stripe.redirectToCheckout({
+        sessionId:session.id
+    });
+    
+    if(result.error){
+        console.log(result.error);
+    }
+}
   console.log(total)
   const handleIncreaseQuantity = (id) => {
     dispatch(IncreaseQuantity({ id }));
@@ -128,8 +155,8 @@ const CartPage = () => {
                 </div>
               </div>
               <div className="paymentBtns">
-                <button class="button-5" onClick={()=>navi('/payment')}>
-                  Place Your Order
+                <button class="button-5" onClick={makePayment}>
+                  CheckOut
                   
                 </button>
             

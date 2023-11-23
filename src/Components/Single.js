@@ -94,7 +94,7 @@ function Single() {
                     Ratings
                   </div>
                   <h2 className="Mrp">
-                  {item.MRP}
+                  ₹ {item.MRP}
                 </h2>
                 < div className="dyProductHighlightsCont">
                 <ul>
