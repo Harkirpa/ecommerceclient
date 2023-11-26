@@ -10,8 +10,7 @@ function Register() {
   const [inputs, setInputs] = useState({
     username: "",
     email: "",
-    password: "",
-    confirmpassword: "",
+    password: ""
   });
   const [regSer, setregSer] = useState();
   const changeHandle = (event) => {
@@ -24,7 +23,7 @@ function Register() {
     console.log(inputs);
     axios
       .post(
-        `https://serverecommerce-5g49.onrender.com/api/register`,
+        `https://serverecommerce-5g49.onrender.com/register`,
         inputs
       )
       .then((res) => {
@@ -91,17 +90,6 @@ function Register() {
                 placeholder="Enter Password"
               />
             </div>
-            <div>
-              <label htmlFor="password"> Confirm Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                onChange={changeHandle}
-                placeholder="Enter Password"
-              />
-            </div>
-
             <button className="btn-submit" onClick={submitHandle}>
               Register
             </button>

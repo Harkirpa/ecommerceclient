@@ -46,12 +46,6 @@ const CartPage = () => {
   const handleDecreaseQuantity = (id) => {
     dispatch(DecreaseQuantity({ id }));
   };
-  // const checkOutBtn = () => {
-  //   toast.success("Order Placed successfully", {
-  //     autoClose: 2000,
-  //   });
-  //   dispatch(EmptyCart());
-  // };
 
   return (
     <>

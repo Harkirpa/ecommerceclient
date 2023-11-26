@@ -22,7 +22,7 @@ function Login() {
     e.preventDefault();
     console.log(inputs);
     await axios
-      .post(`https://serverecommerce-5g49.onrender.com/api/login`, inputs)
+      .post(`https://serverecommerce-5g49.onrender.com/login`, inputs)
       .then((res) => {
         console.log(res.data);
         setregSer(res.data);
@@ -39,7 +39,7 @@ function Login() {
           autoClose: 2000,
         });
         setTimeout(() => {
-          navi(-1);
+          navi('/');
         }, 3000);
       } else {
         toast.error(regSer.msg);
