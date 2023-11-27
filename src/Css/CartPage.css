@@ -153,5 +153,12 @@
     box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
     transform: translateY(0);
   }
- 
+  @media only screen and (min-device-width: 270px) and (max-device-width: 1200px)
+  {
+  
+
+.cartItemPriceDetials {
+  width:82%;
+}
+  }
   
