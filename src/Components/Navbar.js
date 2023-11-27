@@ -15,7 +15,7 @@ function Navbar() {
 
     try {
       const response = await axios.get(
-        `https://serverecommerce-5g49.onrender.com/search=${inputValue}`
+        `https://serverecommerce-5g49.onrender.com/search?category=${inputValue}`
       );
       setResults(response.data);
     } catch (error) {

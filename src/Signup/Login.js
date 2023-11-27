@@ -8,25 +8,22 @@ import Navbar from "../Components/Navbar";
 
 function Login() {
   const navi = useNavigate();
-  const [inputs, setInputs] = useState({
+  const [data, setdata] = useState({
     email: "",
     password: "",
   });
-  const [regSer, setregSer] = useState();
   const changeHandle = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs({ ...inputs, [name]: value });
+    setdata({ ...data, [event.target.name]: event.target.value });
   };
   const submitHandle = (e) => {
     e.preventDefault();
-    console.log(inputs);
+    console.log(data);
    axios
-      .post(`https://serverecommerce-5g49.onrender.com/login`, inputs)
+      .post(`https://serverecommerce-5g49.onrender.com/login`, data)
       .then((res) => {
         console.log(res.data);
-        setregSer(res.data);
-        localStorage.setItem("token", regSer.token);
+        setdata(res.data);
+        localStorage.setItem("token", res.data.token);
       if (res.data.token) {
      navi('/')
       }
