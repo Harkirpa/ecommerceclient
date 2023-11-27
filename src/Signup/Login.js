@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Form.css";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "../Components/Navbar";
 
@@ -18,34 +18,28 @@ function Login() {
     const value = event.target.value;
     setInputs({ ...inputs, [name]: value });
   };
-  const submitHandle = async (e) => {
+  const submitHandle = (e) => {
     e.preventDefault();
     console.log(inputs);
-    await axios
+   axios
       .post(`https://serverecommerce-5g49.onrender.com/login`, inputs)
       .then((res) => {
         console.log(res.data);
         setregSer(res.data);
-      })
+        localStorage.setItem("token", regSer.token);
+      if (res.data.token) {
+     navi('/')
+      }
+      else{
+        navi('/login')
+      }
+    })
       .catch((err) => {
         console.log(err);
       });
   };
-  useEffect(() => {
-    if (regSer) {
-      localStorage.setItem("token", regSer.token);
-      if (regSer.msg === "User is LoggedIn successfully") {
-        toast.success(regSer.msg, {
-          autoClose: 2000,
-        });
-        setTimeout(() => {
-          navi('/');
-        }, 3000);
-      } else {
-        toast.error(regSer.msg);
-      }
-    }
-  }, [regSer, navi]);
+
+    
 
   return (
     <>

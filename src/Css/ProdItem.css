@@ -81,28 +81,32 @@
   .prodContItem {
     padding: 41px;
   }
- .productContainer{
-  top:190px;
-  position: relative;
- }
+
+  .productContainer {
+    top: 190px;
+    position: relative;
+  }
+
   .prodContItemImage {
     margin: -11px;
-    height: 127px;
+    height: 108px;
     width: 96px;
- 
+
   }
 
   .prodContItemHeading {
     font-size: 0.7rem;
-    margin: 5px 0;
+    margin: 21px 0;
   }
-  .laptop_container{
+
+  .laptop_container {
     width: 80vw;
-}
-.adbtn{
-  min-width:80px;
-  left:-32px;
-  bottom: -74px;
-}
+  }
+
+  .adbtn {
+    min-width: 80px;
+    left: -32px;
+    bottom: -39px;
+  }
 
 }

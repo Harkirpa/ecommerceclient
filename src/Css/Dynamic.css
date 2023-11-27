@@ -46,7 +46,7 @@
   align-items: center;
   display: flex;
   font-size: .8rem;
-  gap: 5px;
+  gap: 3px;
 }
 .dyProductRating {
   display: flex;

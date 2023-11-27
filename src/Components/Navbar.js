@@ -1,27 +1,27 @@
 import React ,{useState}from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../Css/Navbar.css";
-// import axios from "axios";
+import axios from "axios";
 import { LuShoppingCart } from "react-icons/lu";
 import { useSelector } from "react-redux";
 import {  toast } from "react-toastify";
 function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
-  // const [query, setQuery] = useState("");
-  // const[result,setResults]=useState([])
-  // const HandleChange = async (e) => {
-  //   const inputValue = e.target.value;
-  //   setQuery(inputValue);
+  const [query, setQuery] = useState("");
+  const[result,setResults]=useState([])
+  const HandleChange = async (e) => {
+    const inputValue = e.target.value;
+    setQuery(inputValue);
 
-  //   try {
-  //     const response = await axios.get(
-  //       `https://serverecommerce-5g49.onrender.com/search=${inputValue}`
-  //     );
-  //     setResults(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
-  // };
+    try {
+      const response = await axios.get(
+        `https://serverecommerce-5g49.onrender.com/search=${inputValue}`
+      );
+      setResults(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
   const Dropdown = () => {
     setIsMobile(isMobile);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -59,15 +59,15 @@ function Navbar() {
           className="searchInput"
           type="text"
           placeholder="Search for Products, Brands or More"
-          // value={query}
-          // onChange={HandleChange}
+          value={query}
+          onChange={HandleChange}
         
         />{""}
-           {/* <Link to="/search" state={result}>
+           <Link to="/search" state={result}>
               <button className="logosearchbar">
                 <i className="fa-solid fa-magnifying-glass"></i>
               </button>
-            </Link> */}
+            </Link>
         <div className="userActions">
           <Link className="" to="/cart">
             <div className="cartIcon">
