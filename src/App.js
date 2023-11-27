@@ -32,6 +32,7 @@ import CartPage from "./Components/CartPage";
 
 import Success from "./Components/Success";
 import Cancel from "./Components/Cancel"
+// import Search from "./Components/Search";
 function App() {
   return (
     <div className="App">
@@ -68,7 +69,7 @@ function App() {
           <Route path="/electronics/soundbars" element={<Soundbars />} />
           <Route path="/electronics/hometheatres" element={<Hometheatre />} />
           <Route path="/cart" element={<CartPage/>}/>
-       
+       {/* <Route path="/search" element={<Search/>}/> */}
        
           <Route path="*" element={<Error />} />
           <Route  path='/success' element={<Success />}/>
