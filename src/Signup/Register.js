@@ -40,10 +40,10 @@ function Register() {
       if (regSer.msg === "User is registered successfully") {
         toast.success(regSer.msg, {
           autoClose: 2000,
+          
         });
-        setTimeout(() => {
-          navi("/login");
-        }, 3000);
+  navi("/login");
+      
       } else {
         toast.error(regSer.msg);
       }
