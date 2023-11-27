@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
+import "../Css/ProdItem.css"
 import { FaShoppingCart } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
 import { useDispatch } from "react-redux";
@@ -14,8 +15,8 @@ function Search() {
 <>
       <Navbar />
       <div className="productContainer">
-        <div className="Rlaptop_container">
-          {data &&
+        <div className="laptop_container">
+          {
             data.map((item, index) => {
               const {
                 id = item.id,

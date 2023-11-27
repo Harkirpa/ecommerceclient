@@ -2,6 +2,7 @@ import React ,{useState}from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../Css/Navbar.css";
 import axios from "axios";
+import { FaSearchDollar } from "react-icons/fa";
 import { LuShoppingCart } from "react-icons/lu";
 import { useSelector } from "react-redux";
 import {  toast } from "react-toastify";
@@ -15,7 +16,7 @@ function Navbar() {
 
     try {
       const response = await axios.get(
-        `https://serverecommerce-5g49.onrender.com/search?category=${inputValue}`
+        `https://serverecommerce-5g49.onrender.com/search?name=${inputValue}`
       );
       setResults(response.data);
     } catch (error) {
@@ -65,7 +66,7 @@ function Navbar() {
         />{""}
            <Link to="/search" state={result}>
               <button className="logosearchbar">
-                <i className="fa-solid fa-magnifying-glass"></i>
+                <i className="fa-solid fa-magnifying-glass"><FaSearchDollar /></i>
               </button>
             </Link>
         <div className="userActions">
