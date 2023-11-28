@@ -25,6 +25,7 @@ function Register() {
       )
       .then((res) => {
         console.log(res.data);
+        alert(res.data.msg)
         setData(res.data);
         localStorage.getItem("token", res.data.token);
    
