@@ -1,54 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./Form.css";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import Navbar from "../Components/Navbar";
 
 function Register() {
   const navi = useNavigate();
-  const [inputs, setInputs] = useState({
+  const [data, setData] = useState({
     username: "",
     email: "",
     password: ""
   });
-  const [regSer, setregSer] = useState();
   const changeHandle = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs({ ...inputs, [name]: value });
+    setData({ ...data, [event.target.name]: event.target.value });
   };
   const submitHandle = (e) => {
     e.preventDefault();
-    console.log(inputs);
+    console.log(data);
     axios
       .post(
         `https://serverecommerce-5g49.onrender.com/register`,
-        inputs
+        data
       )
       .then((res) => {
         console.log(res.data);
-        setregSer(res.data);
-      })
+        setData(res.data);
+        localStorage.getItem("token", res.data.token);
+   
+     navi('/login')
+      }
+      )
       .catch((err) => {
         console.log(err);
       });
   };
-  useEffect(() => {
-    if (regSer) {
-      localStorage.setItem("token", regSer.token);
-      if (regSer.msg === "User is registered successfully") {
-        toast.success(regSer.msg, {
-          autoClose: 2000,
-          
-        });
-  navi("/login");
-      
-      } else {
-        toast.error(regSer.msg);
-      }
-    }
-  }, [regSer, navi]);
   return (
     <>
       <Navbar />
