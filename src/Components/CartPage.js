@@ -73,6 +73,7 @@ const CartPage = () => {
                             >
                               Remove
                             </button>
+                            <div className="cart-buttons">
                             <button
                               className="quantity-btn"
                               onClick={() => handleDecreaseQuantity(item.id)}
@@ -87,7 +88,7 @@ const CartPage = () => {
                               +
                             </button>
                           </div>
-                 
+                 </div>
                  
                         </div>
                       </div>
