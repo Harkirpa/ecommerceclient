@@ -147,6 +147,7 @@
   @media only screen and (min-device-width: 270px) and (max-device-width: 500px) {
     .brandLogo{
       font-size: 1rem;
+      margin-left: -19px;
     }
     .Burger_Icon {
       display: block;
@@ -182,5 +183,11 @@
       & a {
         font-size: 0;
       }
+    }
+    .searchInput {
+      width:60%;
+    }
+    .userActions {
+      gap:1px;
     }
   }
