@@ -96,7 +96,8 @@
 
 
   .prodContItemImage {
-    margin: -11px;
+    margin-left: auto;
+    margin-right: auto;
     height: 108px;
     width: 152px;
 
@@ -133,7 +134,8 @@
 
 
   .prodContItemImage {
-    margin: -11px;
+    margin-left: auto;
+    margin-right: auto;
     height: 108px;
     width: 152px;
 
