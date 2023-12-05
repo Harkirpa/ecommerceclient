@@ -169,13 +169,13 @@
   
 .cartItem{
   margin-left: 5px;
-  width: 77vw;
+  width: 55vw;
 
 }
 .cartItemPriceDetials {
-  width:38vw;
-  margin-left: -75px;
-  margin-top: 250px;
+  width:36vw;
+  margin-left: -36px;
+  margin-top: 32px;
   padding: 17px 0;
     position: inherit;
 }
