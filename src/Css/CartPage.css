@@ -168,9 +168,12 @@
   {
   
 .cartItem{
-  margin-left: 5px;
+  margin-left: -1px;
   width: 55vw;
 
+}
+.cartItemDesc{
+  margin-left: -23px;
 }
 .cartItemPriceDetials {
   width:36vw;
