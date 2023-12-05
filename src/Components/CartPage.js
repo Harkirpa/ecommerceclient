@@ -107,7 +107,7 @@ const CartPage = () => {
                     return (
                     <div className="cartItemPricings">
                           <div className="cartItemDiscount">
-                            {"₹ "+ item.MRP * item.quantity}
+                            {/* {"₹ "+ item.MRP * item.quantity} */}
                          
                           </div>
 
